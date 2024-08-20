@@ -31,3 +31,4 @@ class MyApp extends StatelessWidget {
 //truffle compile
 //truffle migrate
 
+//changed truffle config.js

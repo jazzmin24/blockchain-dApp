@@ -1,11 +1,11 @@
+import 'package:blockchain_powered_dapp/features/dashboard/bloc/dashboard_bloc.dart';
+import 'package:blockchain_powered_dapp/models/transaction_model.dart';
 import 'package:blockchain_powered_dapp/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class WithdrawPage extends StatefulWidget {
-  const WithdrawPage({super.key});
-
-  // final DashboardBloc dashboardBloc;
-  // const WithdrawPage({super.key, required this.dashboardBloc});
+  final DashboardBloc dashboardBloc;
+  const WithdrawPage({super.key, required this.dashboardBloc});
 
   @override
   State<WithdrawPage> createState() => _WithdrawPageState();
@@ -44,15 +44,15 @@ class _WithdrawPageState extends State<WithdrawPage> {
             ),
             const SizedBox(height: 20),
             InkWell(
-              // onTap: () {
-              //   widget.dashboardBloc.add(DashboardWithdrawEvent(
-              //       transactionModel: TransactionModel(
-              //           addressController.text,
-              //           int.parse(amountController.text),
-              //           reasonsController.text,
-              //           DateTime.now())));
-              //   Navigator.pop(context);
-              // },
+              onTap: () {
+                widget.dashboardBloc.add(DashboardWithdrawEvent(
+                    transactionModel: TransactionModel(
+                        addressController.text,
+                        int.parse(amountController.text),
+                        reasonsController.text,
+                        DateTime.now())));
+                Navigator.pop(context);
+              },
               child: Container(
                 height: 50,
                 decoration: BoxDecoration(

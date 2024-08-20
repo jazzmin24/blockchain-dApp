@@ -1,12 +1,12 @@
+import 'package:blockchain_powered_dapp/features/dashboard/bloc/dashboard_bloc.dart';
+import 'package:blockchain_powered_dapp/models/transaction_model.dart';
 import 'package:blockchain_powered_dapp/utils/colors.dart';
 import 'package:flutter/material.dart';
 
-
 class DepositPage extends StatefulWidget {
-  const DepositPage({super.key});
 
-  //final DashboardBloc dashboardBloc;
-  //const DepositPage({super.key, required this.dashboardBloc});
+  final DashboardBloc dashboardBloc;
+  const DepositPage({super.key, required this.dashboardBloc});
 
   @override
   State<DepositPage> createState() => _DepositPageState();
@@ -45,15 +45,15 @@ class _DepositPageState extends State<DepositPage> {
             ),
             const SizedBox(height: 20),
             InkWell(
-              // onTap: () {
-              //   widget.dashboardBloc.add(DashboardDepositEvent(
-              //       transactionModel: TransactionModel(
-              //           addressController.text,
-              //           int.parse(amountController.text),
-              //           reasonsController.text,
-              //           DateTime.now())));
-              //   Navigator.pop(context);
-              // },
+              onTap: () {
+                widget.dashboardBloc.add(DashboardDepositEvent(
+                    transactionModel: TransactionModel(
+                        addressController.text,
+                        int.parse(amountController.text),
+                        reasonsController.text,
+                        DateTime.now())));
+                Navigator.pop(context);
+              },
               child: Container(
                 height: 50,
                 decoration: BoxDecoration(
